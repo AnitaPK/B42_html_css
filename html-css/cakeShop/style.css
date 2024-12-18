@@ -1,0 +1,61 @@
+
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header{
+    background-color: black;
+    color: red;
+    font-size: 50px;
+    text-align: center;
+}
+.textCenter{
+    text-align: center;
+
+}
+/* div h2{
+    text-align: center;
+} */
+.headingOnePara{
+    margin: 50px 150px ;
+}
+.cardsRow{
+    margin-left: 50px;
+}
+.imageCard{
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    margin: 30px 15px;
+}
+.btn{
+    /* border-style: dashed;
+    border-color: brown;
+    border-width: 4px; */
+    border: 1px solid black;
+    background-color: white;
+    padding: 7px 11px;
+}
+.cardFeatured{
+    width:20%;
+    float: left;
+    margin-left: 4%;
+}
+.cardFeatured p{
+    text-align: center;
+    margin: 0;
+}
+
+.contactInfo{
+    background-image: url("./assets/contactInfoImage.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    padding-top: 70px;
+    padding-left: 40px;
+}
+.address1{
+    background-color: white;
+    width: 400px;
+    padding: 20px;
+    top: 60px;
+}

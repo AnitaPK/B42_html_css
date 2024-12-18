@@ -8,6 +8,11 @@
         *{
             font-family:Georgia, 'Times New Roman', Times, serif;
         }
+        .BackGroundImage{
+            background-image: url('./bgImage.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
         h1{
          color: #ff00ff; 
          background-color: bisque;
@@ -18,13 +23,31 @@
             font-size: larger;
             font-weight: 200;   
         }
+        .demo1 img{
+            width: 200px;
+            height: 200px;
+        }
+        a:link{
+            color: black;
+            text-decoration: none;
+        }
+        a:hover{
+            background-color: chartreuse;
+        }
+        a:active{
+            font-size: 30px;
+        }
+        a:visited{
+            color: black;
+
+        }
     </style>
 </head>
-<body>
+<body style="">
   <h1>Heading Page</h1>
   <h3>Heading Three</h3>
   <h6>Heading six</h6>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur laborum quae facere. Minima fuga fugiat aperiam debitis eveniet ex cumque eligendi harum, dignissimos culpa et corporis eaque optio sequi doloribus?</p>
+  <p class="BackGroundImage ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur laborum quae facere. Minima fuga fugiat aperiam debitis eveniet ex cumque eligendi harum, dignissimos culpa et corporis eaque optio sequi doloribus?</p>
 
 <div title="this will show on hover">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus modi voluptatem id illum quisquam. Ab velit quo tempora nam beatae!</div>
 block elements
@@ -44,7 +67,7 @@ inline elements
 </div>
 
 <marquee>Sale! Sale! Sale!</marquee>
-
+<div style="background-image: url('./assets/headerImage.jpg'); background-repeat: no-repeat;background-size: cover;">
 <pre>
     Inline Elements                   Block elements
   span b strong i em del strock     div p heading elements 
@@ -54,16 +77,28 @@ Nonsymantic   elements                   symantic elements
 SPAN   DIV                                p i b heading        
 </pre>
 
-
+</div>
 attributes
 
 <h2 style="color:red; background-color: black;width:300px">Cascadig Style sheet      css3</h2>
 
-<pre>
+<pre class="BackGroundImage">
     1.Inline CSS   added by using style attributes 
     2.Internal CSS  added by using style elemnt in head 
-    3. External CSS  
+    3. External CSS  added by link in head
 </pre>
+
+<a href="http://www.google.com" target="_blank">Go to Google.com</a>
+<a href="./CakeShop.html" target="_blank">Go to cake shop.com</a>
+
+
+
+<div class="demo1">
+    <img src="https://www.punebakers.com/cdn/shop/products/choco104_900x.jpg?v=1617438465" alt="imageCard1" class="imageCard"/>
+    <img src="https://www.punebakers.com/cdn/shop/products/choco104_900x.jpg?v=1617438465" alt="imageCard1" class="imageCard"/>
+    <img src="https://www.punebakers.com/cdn/shop/products/choco104_900x.jpg?v=1617438465" alt="imageCard1" class="imageCard"/>
+</div>
+
 
 </body>
 </html>
