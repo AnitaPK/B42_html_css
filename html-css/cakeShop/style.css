@@ -1,7 +1,62 @@
 
 *{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+/*************  navbar css   ****************/
+.navBar{
+    height: 80px;
+}
+.mainNavbar{
+    list-style-type: none;
+    margin-top:10px;
+    margin-left: 20%;
+    display: inline-block;
+    width: 60%;
+}
+.navItem{
+    display: inline-block;
+    /* float: left; */
+    
+}
+.navList:link{
+    color:black;
+    text-decoration: none;
+    font-size: larger;
+    margin: 30px 30px;
+
+}
+a.navList:hover{
+    /* text-decoration:underline; */
+    border-bottom: 2px solid black;
+    color: black;
+}
+a.navList:active{
+    font-weight: bold;
+    color: black;
+}
+a.navList.visited{
+    color: black;
+    background-color: bisque;
+}
+.active{
+    font-weight: bolder;
+}
+.iconInNavbar{
+    font-size: x-large;
+    padding: 30px 40px;
+}
+.logo{
+    width:140px;
+    height: 30px;
+    padding-top: 5px;
+}
+
+
+
 header{
     background-color: black;
     color: red;
