@@ -1,0 +1,131 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: black;
+    color: white;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid yellow;
+    margin: 1em 5em;
+    padding: 0;
+    width:90%;
+  }
+/*************  navbar css   ****************/
+.navBar{
+    height: 80px;
+}
+.brandInNavbar{
+    font-size: 30px;
+    padding: 20px 40px;
+    float: left;
+    width: 30%;
+    color: red;
+}
+.mainNavbar{
+    float: left;
+    list-style-type: none;
+    width: 70%;
+    text-align: end;
+    padding: 20px 40px;
+
+}
+.navItem{
+    display: inline-block;
+    /* float: left; */
+    
+}
+.navList:link{
+    color:white;
+    text-decoration: none;
+    font-size: larger;
+    margin: 30px 30px;
+
+}
+a.navList:hover{
+    /* text-decoration:underline; */
+    border-bottom: 2px solid black;
+    color:white;
+
+}
+a.navList:active{
+    font-weight: bold;
+    color:white;
+}
+a.navList:visited{
+    color:white;
+    background-color: bisque;
+}
+.active{
+    font-weight: bolder;
+}
+
+.infoDiv{
+    width: 50%;
+    font-size: 30px;
+    margin-left: 60px;
+    padding: 40px;
+    color: white;
+    font-weight: bold;
+    line-height:150%
+}
+.KeyWordInYellow{
+    color: yellow;
+}
+.textInGray{
+    color: gray;
+}
+.resumeLink:link{
+    color: yellow;
+    text-decoration: none;
+    font-size: larger;
+}
+.resumeLink:hover{
+    border-bottom: 1px solid yellow;
+}
+.resumeLink:visited{
+    color: yellow;
+}
+h1{
+    text-align: center;
+    color: white;
+    font-size: xx-large;
+    margin-top: 80px;
+}
+
+.projectContainer{
+    margin: 10px 50px;
+}
+.projectItem{
+    width: 40%;
+    display: inline-block;
+    margin: 20px 50px 20px 50px;
+}
+.projectImage{
+    width: 100%;
+    height: auto;
+}
+.projectImage:hover{
+    width: 100%;
+}
+.aboutMe{
+    font-size: larger;
+    padding: 30px;
+    margin: 5px 40px;
+}
+.linkPara{
+    text-align: end;
+}
+.externalLinks:link{
+    color: rgb(189, 0, 120);
+    text-decoration: none;
+}
+.externalLinks:visited{
+    color: rgb(189, 0, 120);
+}
