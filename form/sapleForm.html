@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample form</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        form {
+            width: 100%;
+            background-color: rgb(196, 234, 236);
+            padding: 20px;
+            font-size: x-large;
+        }
+        .formRow {
+            width: 100%;
+            clear: left;
+        }
+        .lableCol {
+            width: 40%;
+            float: left;
+        }
+
+        .inputCol {
+            width: 60%;
+            float: left;
+        }
+        sup{
+            color: red;
+        }
+        .container1{
+            width: 100%;
+            display: flex;
+            background-image: linear-gradient(to right, white, rgb(103, 217, 252));
+        }
+        .leftDiv{
+            width: 50%;
+            padding: 10px;
+            margin: auto;
+        }
+        .leftImage{
+            width: 70%;
+            border-radius: 50%;
+        }
+        .rightDiv{
+            width: 50%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container1">
+        <div class="leftDiv">
+            <img src="../html-css/bgImage.jpg" class="leftImage">
+        </div>
+        <div class="rightDiv">
+            <form>
+                <fieldset>
+                <legend>Registration form</legend>
+        
+                <div class="formRow">
+                    <div class="lableCol">
+                        <label for="fName">First Name <sup>*</sup>:</label>
+                    </div>
+                    <div class="inputCol">
+                        <input type="text" id="fName" required name="fName"/><br>
+                    </div>
+                </div>
+                <div class="formRow">
+                    <div class="lableCol">
+                        <label for="lName">Last Name<sup>*</sup>:</label>
+                    </div>
+                    <div class="inputCol">
+                        <input type="text" id="lName" required name="lName"/><br>
+                    </div>
+                </div>
+                <div class="formRow">
+                    <div class="lableCol">
+                        <lable for="gender">Gender</lable>
+                    </div>
+                    <input type="radio" value="male" name="gender"/>
+                    <label >Male</label>
+                    <input type="radio" value="female" name="gender"/>
+                    <label>Female</label>
+                </div>
+                <div class="formRow">
+                    <div class="lableCol">
+                        <label for="age">Age</label>
+                    </div>
+                    <div class="inputCol">
+                        <input type="number" id="age" /><br>
+                    </div>
+                </div>
+                <div class="formRow">
+                    <div class="lableCol">
+                        <label for="dob">Date of Birth</label>
+                    </div>
+                    <div class="inputCol">
+                        <input type="date" id="dob" /><br>
+                    </div>
+                </div>
+                <div class="formRow">
+                    <div class="lableCol">
+                        <label for="dob">Date of Birth</label>
+                    </div>
+                    <div class="inputCol">
+                        <input type="datetime-local" id="dob" /><br>
+        
+                    </div>
+                </div>
+                <div class="formRow">
+                    <div class="lableCol">
+                        <label for="resume">File upload</label>
+                    </div>
+                    <div class="inputCol">
+                    <input type="file" id="resume" />
+                    </div>
+                </div>
+                <br>
+                <div class="formRow">
+                    <div class="lableCol">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="inputCol">
+                    <input type="email" id="email" />
+                    </div>
+                </div>
+                <div class="formRow">
+                    <div class="lableCol">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="inputCol">
+                    <input type="password" id="password" />
+                    </div>
+                </div>
+                <div class="formRow">
+                    <div class="lableCol">
+                        <lable>Select Department</lable>
+                    </div>
+                    <input type="checkbox" /><label>IT</label>
+                    <input type="checkbox" /><label>Fin</label>
+                    <input type="checkbox" /><label>HR</label>
+
+                </div>
+                <br>
+                <input type="submit" />
+                <button>Submit </button>
+                <input type="button" value="SUBMIT">
+                <input type="reset" />
+           
+            </fieldset>
+            </form>
+        </div>
+    </div>
+    
+    <br>
+    <form>
+        <input type="color" value="#ff0000"/>
+        <input type="range" min="0" max="100" value="20"/>
+        <textarea rows="10" cols="10"></textarea>
+        <label>Languages</label>
+        <!-- <input type="text" > -->
+        <select name="lang">
+            <option name="lang" value="html">HTML</option>
+            <option name="lang" value="css">CSS</option>
+            <option name="lang" value="javascript">Javascript</option>
+        </select>
+        <label for="phoneNumber">PhoneNumber:</label>
+        <input type="text" id="country_code" name="country_code" pattern="^+91-[0-9]{10}" title="Add correct phone number" placeholder="+91-1234567890"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
+
+

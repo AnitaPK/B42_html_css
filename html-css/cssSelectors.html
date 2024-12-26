@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form sample</title>
+    <style>
+        /* #demoID{
+            color: green;
+        } */
+        .demoClass{
+            color: red;
+        }
+        h3{
+            color: blue !important;
+        }
+        /* div p{
+            color: aquamarine;
+        } */
+
+        /* div > p{
+            color: chartreuse;
+        } */
+         /* div + p{
+            color: chocolate;
+         } */
+        div ~ p{
+            color: blueviolet;
+        }
+        p.classPara:hover{
+            background-color: brown;
+        }
+        h1:first-child{
+            color: red;
+        }
+        .classPara::first-line{
+            color: cadetblue;
+        }
+        .classPara::first-letter{
+            font-size: 30px;
+        }
+.imageDemo{
+    width: 200px;
+    height: 200px;
+}
+/* * | ~ ^ = */ 
+.imageDemo[alt^='star']{
+    border: 5px solid red;
+}
+p[class]{
+    font-style: italic;
+}
+    </style>
+</head>
+<body>
+    <h1 id="demoID" class="demoClass" >
+        Sample Forms 
+    </h1>
+
+ <div>
+    <div>Lorem ipsum dolor sit amet.
+        <h1>Lorem, ipsum dolor.</h1>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, architecto?</p>
+    <h3>Lorem ipsum dolor sit.</h3>
+    <h1>4444Lorem, ipsum dolor.</h1>
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia!</p>
+
+    </div>
+    <p class="classPara">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia!</p>
+
+ </div>
+ <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia!</p>
+ <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia!</p>
+
+ <p class="classPara">
+    Lorem ipsum dolor sit amet <span>adipisicing</span>  elit. Placeat consectetur facilis harum iusto omnis delectus expedita<span>ducimus est </span> dolor repudiandae accusamus commodi rerum, soluta similique. Minima sint in ratione dolorem?
+ </p>
+<img src="../html-css/bgImage.jpg" alt="star" class="imageDemo"/>
+<img src="../html-css/bgImage.jpg" alt="rock star" class="imageDemo"/>
+<img src="../html-css/bgImage.jpg" alt="film_star" class="imageDemo"/>
+<img src="../html-css/bgImage.jpg" alt="star-super" class="imageDemo"/>
+<img src="../html-css/bgImage.jpg" alt="firststarIcon" class="imageDemo"/>
+
+
+</body>
+</html>
