@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .redBox{
+            background-color: red;
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            color: white;
+            text-align: center;
+            padding-top: 40px;
+        }
+        .transformBox{
+            transform: translateY(50px);
+        }
+        .rotateBox:hover{
+            transform: rotate(180deg);
+        }
+        .scaleBox:hover{
+            transform: scale(2,2);
+            /* margin-left: 400px; */
+        }
+        .skewBox{
+            transform: skewx(45deg);
+        }
+        .transitionOne{
+            transition: height 4s, width 4s;
+        }
+        .transitionOne:hover{
+            height: 150px;
+            width: 150px;
+        }
+        .transitionTwo{
+            margin-left: 200px;
+            background-color: rgb(0, 255, 255);
+            width:80px;
+            height: 50px;
+            color: white;
+            border-radius: 4px;
+            font-size: 25px;
+            text-align: center;
+            padding-top: 2%;
+            /* transition: background-color 3s,width 3s, height 3s, font-size 3s; */
+            /* transform: scale(1,1); */
+            transform: rotate(0deg) ;
+            transition: background-color 3s,scale 3s font-size 3s;
+
+            transition-delay: 2s;
+        }
+        .transitionTwo:hover{
+            background-color: rgb(95, 220, 45);
+            width:150px;
+            height: 100px;
+            font-size: 45px;
+            /* transform: scale(1.5,1.5); */
+            transform: rotate(180deg);
+        }
+        .animationBox{
+            background-color: rgb(212, 0, 255);
+            width:80px;
+            height: 50px;
+            color: white;
+            border-radius: 4px;
+            font-size: 25px;
+            text-align: center;
+            padding-top: 2%;
+         
+        }
+        .animationBox1{
+            animation: animationOne 5s linear 2s;
+        }
+        .animationBox2{
+            animation: animationTwo 10s 3s;
+        }
+        @keyframes animationOne{
+            from{background-color: rgb(212, 0, 255);}
+            to{background-color: chocolate; color: black;}
+        }
+        @keyframes animationTwo{
+            0%{}
+            25%{background-color:yellow;transform: rotate(30deg);}
+            50%{background-color:green; transform: translateX(300px);}
+            52%{transform: rotate(-30deg);}
+            75%{ background-color: blue; transform: translateX(600px);}
+            80%{transform: rotate(-360deg);}
+            85%{transform: rotate(100deg);}
+            100%{background-color: rgb(212, 0, 255);
+            }
+        }
+    </style>
+</head>
+<body >
+    <div class="redBox transformBox"></div>
+    <div class="redBox rotateBox">Rotate</div>
+    <div class="redBox scaleBox"></div>
+    <div class="redBox skewBox"></div>
+    <div class="redBox transitionOne"></div>
+    <div class="transitionTwo">CSS</div>
+    <div class="animationBox animationBox1">CSS</div>
+    <div class="animationBox animationBox2">CSS</div>
+
+
+
+
+
+
+</body>
+</html>
