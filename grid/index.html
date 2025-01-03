@@ -49,7 +49,8 @@
             grid-template-areas:  'n1      n1      n1'
                                   'header1 header1 header1'
                                   'menu1   main1    right1' 
-                                 ' menu    sec1      sec1'
+                                 ' menu1    sec1      sec1'
+                                 ' menu1    sec2      sec2'
                                  ' foo     foo        foo';
             gap:10px;
         }
@@ -69,6 +70,9 @@
         }
         .section1{
             grid-area: sec1;
+        }
+        .section2{
+            grid-area: sec2;
         }
         .mainDiv{
             grid-area: main1;
@@ -93,6 +97,8 @@
         <div class="mainDiv sizeDiv">mainDiv</div>
         <div class="rightDiv sizeDiv">rightDiv</div>
         <div class="section1 sizeDiv"></div>
+        <div class="section2 sizeDiv"></div>
+
         <div class="footer1">FOOTER</div>
     </div>
 
