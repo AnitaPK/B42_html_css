@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contanerGrid{
+            background-color: aquamarine;
+            display: grid;
+            gap:10px;
+        }
+        .bl0ck{
+            height: 100px;
+            /* width: 100px; */
+            background-color: green;
+            color: white;
+            font-size: 20px;
+        }
+        .ItemGrid1{
+            grid-column-start: 2;
+            grid-column-end: 4;
+        }
+        .ItemGrid2, .ItemGrid4{
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+        .ItemGrid3, .ItemGrid3 {
+            grid-column-start: 3;
+            grid-column-end: 4;
+        }
+        .ItemGrid6{
+            grid-row-start: 1;
+            grid-row-end: 4;
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+        .bl0ckNav{
+            background-color: brown;
+        }
+        .ItemGrid7{
+            background-color: gray;
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+        .layout2{
+            background-color: rgb(151, 151, 179);
+            display: grid;
+            grid-template-areas:  'n1      n1      n1'
+                                  'header1 header1 header1'
+                                  'menu1   main1    right1' 
+                                 ' menu    sec1      sec1'
+                                 ' foo     foo        foo';
+            gap:10px;
+        }
+        .navbar1{
+            grid-area: n1;
+            background-color: pink;
+            height: 90px;
+        }
+        .header{
+            grid-area: header1;
+        }
+        .menuDiv{
+            grid-area: menu1;
+        }
+        .rightDiv{
+            grid-area: right1;
+        }
+        .section1{
+            grid-area: sec1;
+        }
+        .mainDiv{
+            grid-area: main1;
+        }
+        .sizeDiv{
+            height: 100px;
+            border: 1px solid black;
+        }
+        .footer1{
+            grid-area: foo;
+            height: 100px;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout2">
+        <div class="navbar1"></div>
+        <div class="header sizeDiv">header</div>
+        <div class="menuDiv">menuDiv</div>
+        <div class="mainDiv sizeDiv">mainDiv</div>
+        <div class="rightDiv sizeDiv">rightDiv</div>
+        <div class="section1 sizeDiv"></div>
+        <div class="footer1">FOOTER</div>
+    </div>
+
+<br><hr>
+    <div class="contanerGrid">
+        <div class="ItemGrid1 bl0ck">Horizontal navbar</div>
+        <div class="ItemGrid2 bl0ck">2</div>
+        <div class="ItemGrid3 bl0ck">3</div>
+        <div class="ItemGrid4 bl0ck">4</div>
+        <div class="ItemGrid5 bl0ck">5</div>
+        <div class="ItemGrid6 bl0ckNav">Vertical navbar</div>
+        <div class="ItemGrid7 bl0ck">5</div>
+
+    </div>
+
+
+
+</body>
+</html>
