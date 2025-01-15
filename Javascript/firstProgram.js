@@ -1,0 +1,1 @@
+console.log("hello from B42 to Javascript")

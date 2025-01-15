@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Javascript</h1>
+
+<button onclick="showAlertMsg()">Show alert message</button>
+<button onclick="showDocWriteMsg()">Show document write message</button>
+<p id="msgHello"></p>
+<input type="text" id="name1"/> 
+<button onclick="getName1()">Click to get name1</button>
+<h1>This is my name:<span id="showName1"></span></h1>
+
+<h3><span id="n1"></span>+<span id="n2"></span>=<span id="add"></span></h3>
+
+<h2>Data Types</h2>
+string 
+number 
+null 
+undefined 
+boolean 
+BigInt 
+symbol 
+object 
+typeOf()
+
+
+<script>
+    // console.log(JobForB42)
+    n1 = prompt("Enter First number")
+    n2 = prompt("Enter Second number")
+    document.getElementById("n1").innerHTML = n1
+    document.getElementById("n2").innerHTML = n2
+    console.log("n1 ka type of ",typeof(n1))
+    console.log("isNumber for n1::::::",isNaN(n1))
+
+    document.getElementById("add").innerHTML = Number(n1)+Number(n2)
+    n11= Number(n1);
+    console.log(" typeOf of n11",typeof(n11))
+    console.log("isNumber for n11::::::",isNaN(n11))
+
+
+</script>
+
+    <script src="./firstProgram.js" ></script>
+<script>
+    console.log("Hello from html file in script tag")
+</script>
+<script>
+    function showAlertMsg(){
+    alert("Hello from alert")
+    }
+    document.write("Hello from write ");
+    function showDocWriteMsg(){
+        document.write("Say Byeeeeeeeeeeeeee")
+    }
+document.getElementById('msgHello').innerHTML = "Hello from script to P element"
+document.getElementById('msgHello').style.color='#00ff00'
+</script>
+
+<script>
+    function getName1(){
+        nameOne = document.getElementById('name1').value;
+        console.log(nameOne);
+        document.getElementById('showName1').innerHTML = nameOne;
+        document.getElementById('name1').value = ''
+    }
+    // nameTwo = prompt("Enter name")
+    // document.getElementById('showName1').innerHTML = nameTwo
+
+
+
+</script>
+</body>
+</html>
