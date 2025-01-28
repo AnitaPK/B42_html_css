@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Take input from user and where it is odd or even</h3>
+    <input type="text" id="num1"/>
+    <button onclick="checkOddEven()">Check Odd Even</button>
+    <p>Number is : <span id="result"></span></p>
+
+
+    <script>
+        function checkOddEven(){
+            num1 = Number(document.getElementById('num1').value)
+            if(num1%2 == 0){
+                document.getElementById('result').innerHTML = "Even"
+            }else{
+                document.getElementById('result').innerHTML = "Odd"
+
+            }
+        }
+        num2 = 4;
+        // isPrime = false 
+        if(num2 < 1){
+            console.log("Not prime Number")
+        }
+        if(num2 == 2){
+            console.log("PRIME number")
+        }
+        for(i=2; i<num2; i++){        
+	        if(num2%i == 0){
+	            console.log("NOT PRIME")
+	        }
+            else{
+                console.log("Its PRIME number")
+            }
+        }
+
+
+         // num2 = 3  2<3    3%2 == 0
+         //num2 = 4  2<4    4%2 == 0
+         // num2 = 5 2<5    5%2 == 0
+
+         checkNumber = Number(prompt("Enter a number to check"))
+         if(checkNumber < 0){
+            console.log("Number is negetive")
+         }else if(checkNumber > 0){
+            console.log("Number is Positive")
+         }else{
+            console.log("Given number is ZERO ZERO ZERO")
+         }
+    
+    </script>
+</body>
+</html>

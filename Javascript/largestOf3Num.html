@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>
+    1.Average of N Numbers<br>
+    2.Leap Year Checker<br>
+    3.Find Divisors of a Number<br>
+    4.Fibonacci Sequence<br>
+    <br>
+    0,1,1,2,3,5,8,13,21.....
+    5.Armstrong Number Checker
+
+    abcd    = a^4 + b^4 + c^4 +d^4 
+
+    153 =  1^3 +  5^3 + 3^3    1+ 125 + 27   =  153
+</h1>
+
+    <h2> Largest of Three Numbers    </h2>
+    <p>largest number<span id="largestNum"></span></p>
+<hr>
+    <script>
+        // n1= Number(prompt("Enter first number"))
+        // n2= Number(prompt("Enter second number"))
+
+        // n3= Number(prompt("Enter Third number"))
+
+        // if(n1>n2 && n1>n3){
+        //     console.log(n1,"greatest")
+        // }else if(n2>n3 && n2>n1){
+        //     console.log(n2,"greatest")
+        // }else{
+        //     console.log(n3,"greatest")
+
+        // }
+    </script>
+
+    <script>
+        userGenNumber = prompt("Guess the number ;Enter number between 1-10")
+        randomNumber =Math.floor(Math.random() * 10) + 1;
+        console.log(randomNumber);
+        console.log("userGenNumber",userGenNumber)
+        if(userGenNumber == randomNumber){
+            console.log("You guess correct number")
+        }else if(userGenNumber > randomNumber){
+            console.log("Guessed number is greater")
+        }else(
+            console.log("Guessed number is smaller ")
+        )
+    </script>
+</body>
+</html>
