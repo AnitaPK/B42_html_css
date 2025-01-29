@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        .assignment {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #f9f9f9;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .output {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        input,
+        button {
+            margin: 5px;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            flex: 50%;
+            padding: 10px;
+        }
+    </style>  
+</head>
+  <body>
+      <h2> To-Do List Manager</h2>
+      <div class="cotainer w-50 mx-auto shadow">
+        <div class="m-3 p-5">
+        <input type="text" id="newTask"/>
+        <button class="btn btn-primary" onclick="AddNewTask()">Add Task</button>
+        <button class="btn btn-primary" onclick="clearAll()">Clear All</button>
+        <ul id="showList"></ul>
+      </div>
+
+
+    <!-- Assignment 2: Student Marks Calculator -->
+    <div class="assignment" id="marks-calculator">
+        <h3>2. Student Marks Calculator</h3>
+        <input type="number" id="markInput" placeholder="Enter a mark" />
+        <button onclick="addMark()">Add Mark</button>
+        <button onclick="calculateMarks()">Calculate</button>
+        <button onclick="resetMarks()">Reset</button>
+        <div class="output" id="marksOutput"></div>
+    </div>
+
+    <script>
+        // To-Do List Manager 
+        tasks = ['Data Science', 'AI ML', 'Centemental Analysis']
+        lists=document.getElementById('showList')
+        function renderTasks(){
+        lists.innerHTML = 
+         tasks.map((task, index)=>`
+                            <li class='text-primary'>${task}</li>
+                            <button class='btn btn-danger' onclick='deleteTask(${index})''>delete</button>
+                            `).join('')
+        }
+        function AddNewTask(){
+            newTask = document.getElementById('newTask').value;
+            console.log(newTask);
+            tasks.push(newTask)
+            console.log(tasks)
+            document.getElementById('newTask').value = ''
+            renderTasks();
+        }
+function clearAll(){
+    tasks = [];
+    console.log(tasks);
+    renderTasks();
+    lists.innerHTML = "NO PROJETS"
+}
+function deleteTask(i){
+    console.log(i);
+    console.log(tasks);
+    tasks.splice(i,1);
+    console.log(tasks);
+    renderTasks();
+}
+        renderTasks();
+
+
+// Assignment 2: Student Marks Calculator
+let marks = [];
+        function addMark() {
+            const mark = parseInt(document.getElementById('markInput').value);
+            if (!isNaN(mark)) {
+                marks.push(mark);
+                document.getElementById('markInput').value = '';
+            }
+        }
+        function calculateMarks() {
+            if (marks.length > 0) {
+                const total = marks.reduce((sum, mark) => sum + mark, 0);
+                const average = total / marks.length;
+                const max = Math.max(...marks);
+                const min = Math.min(...marks);
+                document.getElementById('marksOutput').innerHTML = `
+          Total Marks: ${total} <br>
+          Average Marks: ${average.toFixed(2)} <br>
+          Highest Mark: ${max} <br>
+          Lowest Mark: ${min}
+        `;
+            }
+        }
+        function resetMarks() {
+            marks = [];
+            document.getElementById('marksOutput').innerHTML = '';
+        }
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
