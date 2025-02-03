@@ -99,6 +99,44 @@
         <div class="output" id="marksOutput"></div>
     </div>
 
+    <!-- Assignment 3: Search in an Array -->
+    <div class="assignment" id="search-array">
+        <h3>3. Search in an Array</h3>
+        <input type="text" id="searchInput" placeholder="Search for a car brand" />
+        <button onclick="searchCar()">Search</button>
+        <ul id="searchResults"></ul>
+    </div>
+
+<!-- Assignment 4: Filter Even and Odd Numbers -->
+<div class="assignment" id="even-odd">
+    <h3>4. Filter Even and Odd Numbers</h3>
+    <input type="number" id="numberInput" placeholder="Enter a number" />
+    <button onclick="addNumber()">Add Number</button>
+    <button onclick="showEven()">Show Even</button>
+    <button onclick="showOdd()">Show Odd</button>
+    <button onclick="clearNumbers()">Clear</button>
+    <div class="row">
+        <div class="column">
+            <h4>Even Numbers</h4>
+            <div class="output" id="evenNumbers"></div>
+        </div>
+        <div class="column">
+            <h4>Odd Numbers</h4>
+            <div class="output" id="oddNumbers"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Assignment 5: Sort Names Alphabetically -->
+<div class="assignment" id="sort-names">
+    <h3>5. Sort Names Alphabetically</h3>
+    <input type="text" id="nameInput" placeholder="Enter a name" />
+    <button onclick="addName()">Add Name</button>
+    <button onclick="sortNames()">Sort</button>
+    <button onclick="resetNames()">Reset</button>
+    <div class="output" id="namesList"></div>
+</div>
+
     <script>
         // To-Do List Manager 
         tasks = ['Data Science', 'AI ML', 'Centemental Analysis']
@@ -136,20 +174,24 @@ function deleteTask(i){
 
 // Assignment 2: Student Marks Calculator
 let marks = [];
-        function addMark() {
-            const mark = parseInt(document.getElementById('markInput').value);
-            if (!isNaN(mark)) {
-                marks.push(mark);
-                document.getElementById('markInput').value = '';
+function addMark() {
+    const mark = parseInt(document.getElementById('markInput').value);
+        if (!isNaN(mark)) {
+            marks.push(mark);
+            document.getElementById('markInput').value = '';
             }
+}
+function calculateMarks() {
+    if (marks.length > 0) {
+        const total = marks.reduce((sum, mark) => sum + mark, 0);
+        sumForLoop = 0;
+        for(i=0;i<marks.length;i++){
+            sumForLoop +=marks[i];
         }
-        function calculateMarks() {
-            if (marks.length > 0) {
-                const total = marks.reduce((sum, mark) => sum + mark, 0);
-                const average = total / marks.length;
-                const max = Math.max(...marks);
-                const min = Math.min(...marks);
-                document.getElementById('marksOutput').innerHTML = `
+        const average = total / marks.length;
+        const max = Math.max(...marks);
+        const min = Math.min(...marks);
+        document.getElementById('marksOutput').innerHTML = `
           Total Marks: ${total} <br>
           Average Marks: ${average.toFixed(2)} <br>
           Highest Mark: ${max} <br>
@@ -162,7 +204,73 @@ let marks = [];
             document.getElementById('marksOutput').innerHTML = '';
         }
 
+// Assignment 3: Search in an Array
+const carBrands = ["Toyota", "Honda", "Ford", "BMW", "Audi", "Mercedes", "Nissan", "Hyundai", "Kia", "Tesla"];
 
+function searchCar() {
+    const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
+    const searchResults = document.getElementById('searchResults');
+
+    // Filter car brands based on the search input
+    const filteredBrands = carBrands.filter(brand => brand.toLowerCase().includes(searchInput));
+
+    // Clear and update the search results
+    searchResults.innerHTML = filteredBrands.length
+        ? filteredBrands.map(brand => `<li>${brand}</li>`).join('')
+        : '<li>No matches found</li>';
+        ///////////////////////////////////////////////////////
+    index = carBrands.findIndex((brandName)=>searchInput == brandName.toLowerCase())
+    if(index>=0){
+        searchResults.innerHTML = `<li>${carBrands[index]}</li>`
+    }else{
+        searchResults.innerHTML = '<li>No matches found</li>'
+    }
+}
+
+ // Assignment 4: Filter Even and Odd Numbers
+ let numbers = [];
+        function addNumber() {
+            const num = parseInt(document.getElementById('numberInput').value);
+            if (!isNaN(num)) {
+                numbers.push(num);
+                document.getElementById('numberInput').value = '';
+            }
+        }
+        function showEven() {
+            const evens = numbers.filter(num => num % 2 === 0);
+            document.getElementById('evenNumbers').textContent = evens.join(', ');
+        }
+        function showOdd() {
+            const odds = numbers.filter(num => num % 2 !== 0);
+            document.getElementById('oddNumbers').textContent = odds.join(', ');
+        }
+        function clearNumbers() {
+            numbers = [];
+            document.getElementById('evenNumbers').textContent = '';
+            document.getElementById('oddNumbers').textContent = '';
+        }
+
+        // Assignment 5: Sort Names Alphabetically
+        let names = [];
+        function addName() {
+            const name = document.getElementById('nameInput').value;
+            if (name) {
+                names.push(name);
+                updateNamesList();
+                document.getElementById('nameInput').value = '';
+            }
+        }
+        function sortNames() {
+            names.sort();
+            updateNamesList();
+        }
+        function resetNames() {
+            names = [];
+            updateNamesList();
+        }
+        function updateNamesList() {
+            document.getElementById('namesList').textContent = names.join(', ');
+        }
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
