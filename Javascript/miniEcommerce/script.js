@@ -20,18 +20,25 @@ getFromLocal = () => JSON.parse(localStorage.getItem('Procucts'))
 
 function renderList(filteredProducts){
     document.getElementById('productList').innerHTML=
-    filteredProducts.map((product)=>`<div class="col-sm-6">
-          <div class="card">
+    filteredProducts.map((product)=>`<div class="col-md-4">
+          <div class="card text-white" style='width:12rem; background-color:#73c2e3'>
             <div class="card-body">
-              <h5 class="card-title">${product.name}</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <button class="btn btn-primary">Delete</button>
+              <h5 class="card-title text-danger">${product.name}</h5>
+              <p class="card-text">Category: <span class='text-danger'>${product.category}</span></p>
+              <p class="card-text">Price:<span class='text-danger'> ${product.price}</span></p>
+              <p class="card-text">Stock: <p class="card-text">Stock:${product.stock}</span></p>
+              <button class="btn btn-primary" onclick='deleteProd(${product.id})'>Delete</button>
+              <button class="btn btn-primary" onclick='editProd(${product.id})'  data-toggle="modal" data-target="#exampleModal">Edit</button>
+
             </div>
           </div>
         </div>
         
     `).join('')
 }
+
+
+
 function addProduct(){
     name1=document.getElementById('name').value
     price=document.getElementById('price').value
@@ -49,12 +56,88 @@ function addProduct(){
 
 filterProducts = ()=>{
     key = document.getElementById('filterKey').value;
-    filteredProd = productsFromLocal.filter((p)=> key == p.name)
+    filteredProd = productsFromLocal.filter((p)=> key.toLowerCase() == p.name.toLowerCase())
     console.log(filteredProd);
     renderList(filteredProd);
-    
+}
+filterByCategary = ()=>{
+  key = document.getElementById('filterKey').value;
+  filteredProd = productsFromLocal.filter((p)=> key.toLowerCase() == p.category.toLowerCase())
+  console.log(filteredProd);
+  renderList(filteredProd);
 }
 
+function deleteProd(ID){
+  index =  productsFromLocal.findIndex((p)=>p.id==ID)
+  console.log(index);
+  productsFromLocal.splice(index,1);
+  setToLocal(productsFromLocal);
+  productsFromLocal = getFromLocal();
+
+renderList(productsFromLocal)
+}
+
+
+
+
+function editProd(ID){
+
+
+  forUpdate = productsFromLocal.find((p)=> p.id == ID)
+  console.log(forUpdate);
+  document.getElementById('updateProd').innerHTML = `<div class="modal-content" >
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="form-group">
+              <label for="name">Product Name</label>
+              
+              <input type="text" class="form-control" id="updatedName" value=${forUpdate.name} disabled>
+            </div>
+            <div class="form-group">
+                <label for="name">Product Price</label>
+                <input type="text" class="form-control" id="updatedPrice" value=${forUpdate.price}>
+            </div>
+            <div class="form-group">
+                <label for="name">Product Category</label>
+                <input type="text" class="form-control" id="updatedCategory" value=${forUpdate.category} disabled>
+            </div>
+            <div class="form-group">
+                <label for="name">Product Stock</label>
+                <input type="number" class="form-control" id="updatedStock" value=${forUpdate.stock}>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick='updateProduct(${forUpdate.id})'>Update changes</button>
+      </div>
+    </div>`
+}
+
+function updateProduct(ID){
+newPrice = document.getElementById('updatedPrice').value
+newStock = document.getElementById('updatedStock').value
+
+console.log(newPrice,newStock)
+indexForUpdate = productsFromLocal.findIndex((p)=>p.id == ID)
+if(indexForUpdate == -1){
+  alert('product Not Found')
+}else{
+  console.log(productsFromLocal[indexForUpdate])
+  productsFromLocal[indexForUpdate].price = newPrice;
+  productsFromLocal[indexForUpdate].stock = newStock;
+  setToLocal(productsFromLocal);
+
+  productsFromLocal1 = getFromLocal();
+  
+  renderList(productsFromLocal1)
+}
+
+}
 
 setToLocal(products);
 
