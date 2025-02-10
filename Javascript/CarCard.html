@@ -20,7 +20,6 @@
             padding: 10px;
         }
         .car{
-            background-color: #0e0e46;
             display: inline-block;
             padding: 3px 7px;
             border-radius: 7px;
@@ -29,24 +28,39 @@
             display: flex;
             gap:5px
         }
-        .red{
+        .blue{
             width: 15px;
-            height: 15px;
             background-color: #0e0e46;
+            height: 15px;
             border-radius: 50%;
             border: none;
+
         }
         .gray{
             width: 15px;
             height: 15px;
             background-color: gray;
             border-radius: 50%;
+            border: none;
+
         }
         .black{
             width: 15px;
             height: 15px;
-            background-color: black;
             border-radius: 50%;
+            background-color: black;
+            border: none;
+        }
+        .ChangingBgColor{
+            background-color: #0e0e46;
+
+        }
+        
+        .customButton{
+            border-radius: 5px;
+            border: none;
+            color: white;
+            padding: 5px;
         }
     </style>
 </head>
@@ -55,39 +69,93 @@
         <img src="./carBlue.jpg" alt="redcar" class="cardImage" id="imageChange">
         
         <div class="cardContent">
-            <div class="car" >car</div>
+            <div class="car ChangingBgColor" >car</div>
             <div>Mercedez Benz c234 2022</div>
-            <p>Mileage:4,000 miles</p>
+            <p >Mileage:4,000 miles</p>
             <p>Fual:4,000 miles</p>
             <p>Safety:4,000 miles</p>
             <p>Pick a color:</p>
             <div class="pickColor">
-                <button class="red" onclick="selectRedCar()"></button>
+                <button class="blue" onclick="selectRedCar()"></button>
                 <button class="gray" onclick="selectGrayCar()"></button>
                 <button class="black" onclick="selectBlackCar()"></button>
                 <div class="price">$134,567 <span><del>$140500</del></span></div>
             </div>
-            <button class="customButton">Add To Cart</button>
+            <br>
+            <button class="customButton ChangingBgColor">Add To Cart</button>
         </div>
     </div>
 
+<p class="ChangingBgColor">Misal Pav</p>
+<p class="ChangingBgColor">Pav Bhaji</p>
+<button onclick="changeFontColor()">Change Theme </button>
+
+
     <script>
         function selectRedCar(){
-            document.querySelector('.car').style.backgroundColor = '#0e0e46';
+            // document.querySelector('.car').style.backgroundColor = '#0e0e46';
+            const bgChange = document.getElementsByClassName('ChangingBgColor')
+            console.log(bgChange);
+            for(i=0; i<bgChange.length;i++){
+                console.log("ITERATION$$$$$$$",bgChange[i])
+                bgChange[i].style.backgroundColor = '#0e0e46'
+            }
             imgTag = document.getElementById('imageChange')
             imgTag.src = './carBlue.jpg'
         }
         function selectGrayCar(){
-            gray1 = document.querySelector('.car')
-            gray1.style.backgroundColor = 'gray';
+            // gray1 = document.querySelector('.car')
+            // gray1.style.backgroundColor = 'gray';
+            const bgChange = document.getElementsByClassName('ChangingBgColor')
+            console.log(bgChange);
+            for(i=0; i<bgChange.length;i++){
+                console.log("ITERATION$$$$$$$",bgChange[i])
+                bgChange[i].style.backgroundColor = 'gray'
+            }
+
             imgTag = document.getElementById('imageChange')
             imgTag.src = './cargray.jpg'
         }
         function selectBlackCar(){
-            gray1 = document.querySelector('.car')
-            gray1.style.backgroundColor = 'black';
+            // gray1 = document.querySelector('.car')
+            // gray1.style.backgroundColor = 'black';
+
+            const bgChange = document.getElementsByClassName('ChangingBgColor')
+            console.log(bgChange);
+            for(i=0; i<bgChange.length;i++){
+                console.log("ITERATION$$$$$$$",bgChange[i])
+                bgChange[i].style.backgroundColor = 'black'
+            }
             imgTag = document.getElementById('imageChange')
             imgTag.src = './carBlack.jpg'
+        }
+        function changeFontColor(){
+            pCollection = document.getElementsByTagName('p')
+            cardBgColorElement = document.querySelector('.customCard')
+            bodyBgColorElement = document.querySelector('body')
+
+            pCollectionQuery = document.querySelectorAll('p')
+            console.log("Omkar***",pCollectionQuery);
+
+            classSelectQuery = document.querySelectorAll('.ChangingBgColor')
+            console.log("Omkar1****",classSelectQuery);
+
+            console.log(pCollection)
+            for(i=0; i<pCollection.length; i++){
+                if(pCollection[i].style.color == 'red'){
+                pCollection[i].style.color = 'black';
+                cardBgColorElement.style.backgroundColor = 'orange'
+                bodyBgColorElement.style.backgroundColor = 'pink'
+
+                }else{
+                pCollection[i].style.color = 'red';
+                cardBgColorElement.style.backgroundColor = 'pink'
+                bodyBgColorElement.style.backgroundColor = 'white'
+
+
+
+                }
+            }
         }
     </script>
 </body>
