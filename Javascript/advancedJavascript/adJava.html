@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+
+        // function f1(){
+        //     setTimeout(()=>{
+        //         document.write('task1 started')
+        //     document.write('<br>')
+        //     document.write('task1 complete')
+        //     document.write('<br>')
+        //     }, 5000)
+       
+
+        // }
+        // function f2(){
+        //     document.write('task2 started')
+        //     document.write('<br>')
+        //     f1()
+        //     document.write('task2 complete')
+        //     document.write('<br>')
+        // }
+        // f2()
+
+        
+        // above problem resolve using promises 
+        function f1() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    document.write('task1 started')
+            document.write('<br>')
+            document.write('task1 complete')
+            document.write('<br>')
+                    resolve();
+                }, 100);
+            })
+        }
+   
+        async function f2() {
+            document.write('task2 started')
+            // Engine waits for f1() to finish it's 
+            // execution before executing the next line
+            await f1(); 
+            document.write('task2 complete')
+
+        }
+        f2();
+    </script>
+</body>
+</html>

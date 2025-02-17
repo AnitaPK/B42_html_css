@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLOVE</title>
+    <style>
+        .btn-PINK {
+            width: 70%;
+            font-size: larger;
+            /* margin: 0 auto; */
+            border: 1px dashed red;
+            background-color: pink;
+            color: red;
+            padding: 7px;
+            outline: 2px solid pink;
+            border-radius: 5px;
+        }
+
+        @media screen and (max-width:450px) {
+            .btn-PINK {
+                max-width: 200px;
+                border: 1px dashed red;
+                background-color: pink;
+                color: red;
+                padding: 7px;
+                outline: 2px solid pink;
+                border-radius: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div style="  display: flex;justify-content: center;">
+        <button id="btnDemo">Click Me</button>
+    </div>
+    <div style="  display: flex;justify-content: center;">
+        <img src="./roseRed.jpg" alt="image1" style="width:40%;height: 600px;" id="forImage" />
+    </div>
+    <br>
+    <button id="colorButton">Change Color</button>
+
+
+    <script>
+
+
+        btnDemo = document.getElementById('btnDemo')
+        btnDemo.setAttribute('class', 'btn-PINK')
+
+        function ChangeImage() {
+            imgElmt = document.querySelector('#forImage')
+            pathSRC = imgElmt.getAttribute('src')
+            console.log(pathSRC)
+            imgElmt.setAttribute('src', './giftRed.jpg')
+            // imgElmt.src = './giftRed.jpg'
+        }
+
+        btnDemo.addEventListener('click', ChangeImage)
+
+        let btn = document.getElementById("colorButton");
+
+        btn.addEventListener("click", function () {
+            let currentColor = btn.getAttribute("style");
+
+            if (currentColor === "background-color: red;") {
+                btn.setAttribute("style", "background-color: blue;");
+            } else {
+                btn.setAttribute("style", "background-color: red;");
+            }
+        });
+
+
+
+    </script>
+</body>
+
+</html>
