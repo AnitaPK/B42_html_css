@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Project List</title>
+  </head>
+  <body class="container mt-4">
+    <h1 class="text-center">Project List</h1>
+
+    <!-- Filters and Sorting -->
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <input type="text" id="searchName" class="form-control" placeholder="Search by Name" oninput="filterProjects()">
+      </div>
+      <div class="col-md-4">
+        <select id="filterCategory" class="form-control" onchange="filterProjects()">
+          <option value="">All Categories</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <select id="sortOption" class="form-control" onchange="sortProjects()">
+          <option value="">Sort By</option>
+          <option value="name">Name</option>
+          <option value="date">Date</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Project List Table -->
+     <div style="overflow-y: auto; height: 580px;">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr class="bg-info">
+          <th scope="col">Name</th>
+          <th scope="col">Department</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+        </tr>
+      </thead>
+      <tbody id="projectTable"></tbody>
+    </table>
+</div>
+    <script>
+      let projects = [];
+
+      function renderProjects(data) {
+        projects = data;
+        populateCategoryFilter();
+        displayProjects(data);
+      }
+
+      function displayProjects(projectList) {
+        const tableBody = document.getElementById("projectTable");
+        tableBody.innerHTML = "";
+        projectList.forEach(project => {
+          const row = `<tr>
+            <td><b>${project.ProjectName}</b><br>
+                <i>${project.Details}</i>
+            </td>
+            <td>${project.Department}</td>
+            <td>${project.priority}</td>
+            <td>${new Date(project.startDate * 1000).toLocaleDateString()}</td>
+            <td>${new Date(project.EndDate * 1000).toLocaleDateString()}</td>
+          </tr>`;
+          tableBody.innerHTML += row;
+        });
+      }
+
+      function filterProjects() {
+        const nameFilter = document.getElementById("searchName").value.toLowerCase();
+        const categoryFilter = document.getElementById("filterCategory").value;
+        
+        let filteredProjects = projects.filter(p => 
+          p.ProjectName.toLowerCase().includes(nameFilter) && 
+          (categoryFilter === "" || p.Department === categoryFilter)
+        );
+        
+        displayProjects(filteredProjects);
+      }
+
+      function sortProjects() {
+        const sortBy = document.getElementById("sortOption").value;
+        let sortedProjects = [...projects];
+        
+        if (sortBy === "name") {
+          sortedProjects.sort((a, b) => a.ProjectName.localeCompare(b.ProjectName));
+        } else if (sortBy === "date") {
+          sortedProjects.sort((a, b) => a.startDate - b.startDate);
+        }
+        
+        displayProjects(sortedProjects);
+      }
+
+      function populateCategoryFilter() {
+        const categories = [...new Set(projects.map(p => p.Department))];
+        const filterDropdown = document.getElementById("filterCategory");
+        categories.forEach(category => {
+          const option = document.createElement("option");
+          option.value = category;
+          option.textContent = category;
+          filterDropdown.appendChild(option);
+        });
+      }
+
+      fetch('https://674e84f1635bad45618eebc1.mockapi.io/api/v1/projects')
+        .then(response => response.json())
+        .then(data => renderProjects(data))
+        .catch(error => console.log(error));
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
