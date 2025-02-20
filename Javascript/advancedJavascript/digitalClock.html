@@ -1,50 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Assignments</title>
+    <style>
+            body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #f7f7f7, #cfcfcf);
+      color: #333;
+    }
+    .container {
+      padding: 20px;
+    }
+    .assignment {
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .assignment h2 {
+      margin-top: 0;
+    }
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      display: block;
+      width: 100%;
+    }
+    .output {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+    }
+    </style>
 </head>
+
 <body>
-    <h3>Digital CLock</h3>
+    <h3>1. Digital CLock</h3>
     <h1><span id="hr"></span>:<span id="min"></span>:<span id="sec"></span></h1>
-<button id="stopClock">Stop</button>
-<button id="startClock">Start</button>
+    <button id="stopClock">Stop</button>
+    <button id="startClock">Start</button>
+    <hr>
+    <h3>2. Timer with Start, Pause, and Reset </h3>
 
-<script>
-    console.log(Date());
+    <h1><span id="hr2">00</span>:<span id="min2">00</span>:<span id="sec2">00</span></h1>
+    <button id="start">Start</button>
+    <button id="pause">Pause</button>
+    <button id="reset">Reset</button>
 
-    function digiClock(){
-    today = new Date();
-    console.log(today)
 
-    hr = today.getHours();
-    console.log(hr)
-document.getElementById('hr').innerHTML = hr
-    min= today.getMinutes();
-    console.log(min);
-document.getElementById('min').innerHTML = min
-    sec= today.getSeconds();
-    console.log(sec)
-document.getElementById('sec').innerHTML = sec
+    <div class="assignment" id="assignment3">
+        <h3>3. Event Reminder</h3>
+        <input type="text" id="reminderMessage" placeholder="Enter reminder message">
+        <input type="number" id="reminderTime" placeholder="Time in seconds">
+        <button onclick="setReminder()">Set Reminder</button>
+        <div class="output" id="reminderOutput"></div>
+      </div>
+  
+      <div class="assignment" id="assignment4">
+        <h3>4. Image Carousel</h3>
+        <img id="carouselImage" src="https://loremflickr.com/cache/resized/65535_53801314765_21a1bfbf70_m_200_200_nofilter.jpg" alt="Image" style="width: 100%; max-width: 300px;">
+        <button onclick="prevImage()">Previous</button> 
+        <button onclick="nextImage()">Next</button>
+      </div>
+
+    <script>
+        console.log(Date());
+        // 1. Digital clock 
+        function digiClock() {
+            today = new Date();
+            console.log(today)
+
+            hr = today.getHours();
+            console.log(hr)
+            document.getElementById('hr').innerHTML = hr
+            min = today.getMinutes();
+            console.log(min);
+            document.getElementById('min').innerHTML = min
+            sec = today.getSeconds();
+            console.log(sec)
+            document.getElementById('sec').innerHTML = sec
+        }
+
+        digiClock()
+
+        function forInterval() {
+            startClock = setInterval(digiClock, 1000)
+        }
+        forInterval()
+
+        document.getElementById('stopClock').addEventListener('click', () => {
+            clearInterval(startClock)
+        })
+
+        document.getElementById('startClock').addEventListener('click', forInterval)
+
+
+        // 2.  Timer with Start, Pause, and Reset 
+        hr2, min2, sec2 = 0;
+        function timerClock() {
+            sec2 = sec2 + 1;
+            if (sec2 == 60) {
+                sec2 = 0;
+                min2 = min2 + 1
+                if (min2 == 60) {
+                    min = 0;
+                    hr2 = hr2 + 1;
+                    document.getElementById('hr2').innerHTML = hr2
+                }
+                document.getElementById('min2').innerHTML = min2
+            }
+            document.getElementById('sec2').innerHTML = sec2
+        }
+        function for1SecInterval() {
+            startTimer = setInterval(timerClock, 1000);
+        }
+        function pauseClock() {
+            clearInterval(startTimer)
+        }
+        function resetClock() {
+            hr2, min2, sec2 = 0;
+            document.getElementById('hr2').innerHTML = hr2
+            document.getElementById('min2').innerHTML = min2
+            document.getElementById('sec2').innerHTML = sec2
+        }
+        document.getElementById('start').addEventListener('click', for1SecInterval)
+        document.getElementById('pause').addEventListener('click', pauseClock)
+        document.getElementById('reset').addEventListener('click', resetClock)
+
+    // 3. Event Reminder
+    function setReminder() {
+      const message = document.getElementById('reminderMessage').value;
+      const time = parseInt(document.getElementById('reminderTime').value, 10) * 1000;
+      setTimeout(() => {
+        document.getElementById('reminderOutput').textContent = message;
+      }, time);
     }
 
-    digiClock()
 
-function forInterval(){
-    startClock = setInterval(digiClock, 1000)
-}
-forInterval()
 
-    document.getElementById('stopClock').addEventListener('click',()=>{
-        clearInterval(startClock)
-    }) 
-
-document.getElementById('startClock').addEventListener('click',forInterval)
-
-</script>
+    // 4. Image Carousel
+    const images = [
+      'https://loremflickr.com/cache/resized/65535_53801314765_21a1bfbf70_m_200_200_nofilter.jpg',
+      'https://loremflickr.com/cache/resized/65535_54244488711_730830b511_n_200_200_nofilter.jpg',
+      'https://loremflickr.com/cache/resized/65535_53958221119_1cdc671b8c_n_200_200_nofilter.jpg'
+    ];
+    let currentIndex = 0;
+    function updateCarousel() {
+      document.getElementById('carouselImage').src = images[currentIndex];
+    }
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateCarousel();
+    }
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateCarousel();
+    }
+    setInterval(()=>{
+      document.getElementById('carouselImage').src = images[(currentIndex + 1) % images.length];
+    },5000)
+    </script>
 
 
 
 </body>
+
 </html>
