@@ -87,6 +87,7 @@
         <button onclick="nextImage()">Next</button>
       </div>
 
+<<<<<<< HEAD
 
       <div class="assignment" id="assignment5">
         <h2>5. Simulated API Calls with Callbacks</h2>
@@ -126,6 +127,8 @@
       </div>
     </div>
 
+=======
+>>>>>>> ee623697e4ef52894ec50c8a87df459a401a712a
     <script>
         console.log(Date());
         // 1. Digital clock 
@@ -199,6 +202,7 @@
       }, time);
     }
 
+<<<<<<< HEAD
     // 4. Image Carousel
     const images = [
       'https://loremflickr.com/cache/resized/65535_53801314765_21a1bfbf70_m_200_200_nofilter.jpg',
@@ -334,6 +338,32 @@
         document.getElementById('quizOutput').textContent = 'Quiz finished';
       }
     }
+=======
+
+
+    // 4. Image Carousel
+    const images = [
+      'https://loremflickr.com/cache/resized/65535_53801314765_21a1bfbf70_m_200_200_nofilter.jpg',
+      'https://loremflickr.com/cache/resized/65535_54244488711_730830b511_n_200_200_nofilter.jpg',
+      'https://loremflickr.com/cache/resized/65535_53958221119_1cdc671b8c_n_200_200_nofilter.jpg'
+    ];
+    let currentIndex = 0;
+    function updateCarousel() {
+      document.getElementById('carouselImage').src = images[currentIndex];
+    }
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateCarousel();
+    }
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateCarousel();
+    }
+    setInterval(()=>{
+      document.getElementById('carouselImage').src = images[(currentIndex + 1) % images.length];
+    },5000)
+    </script>
+>>>>>>> ee623697e4ef52894ec50c8a87df459a401a712a
 
 
     </script>
