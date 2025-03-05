@@ -1,21 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import formIamge from "../assets/formImage.jpg";
+import HomePage from "./HomePage";
 
 const LoginPage = () => {
-    const [email,setEmail] = useState('asd')
-    const [password, setPassword] = useState('123')
+    const [email,setEmail] = useState()
+    const [password, setPassword] = useState()
+    const [loggedUser, setLoggedUser] = useState()
+    const [isLoggedIn,setIsLoghgedIn] = useState(false)
 
 
-function handleFormData(){
-    const payload = {email:email, password:password}
-    console.log(payload);
-    setEmail('')
-    setPassword('')
-}
+    useEffect(()=>{
+      const loggedInUser = JSON.parse(localStorage.getItem('user'))
+      setLoggedUser(loggedInUser);
+    },[])
+
+console.log(loggedUser);
+
+
+
 function handleFormSubmit(event){
     event.preventDefault();
-    const payload = {email:email, password:password}
-    console.log(payload);
+    if(email == loggedUser.email && password == loggedUser.password){
+      alert('Yov have logged in suceesfully')
+      setIsLoghgedIn(true);
+    }else{
+      alert('credentials inValid')
+    }
 
 }
 console.log(email, password);
@@ -51,16 +61,20 @@ console.log(email, password);
             </div>
 
             <button type="submit" className="btn btn-primary">
-              Submit By Form
+              Login
             </button>
-            <button className="btn btn-primary" onClick={handleFormData}>
-              Submit By On Click
-            </button>
+            <a href="">If Not Registered</a>
+
           </form>
         </div>
       </div>
-      <p>Email : {email}</p>
-      <p>Password:{password}</p>
+  
+  {isLoggedIn ? <p>logged In</p>    : <p>Please Log in</p>}
+
+  <br></br>
+
+  {isLoggedIn && <HomePage />}
+
     </div>
   );
 };
