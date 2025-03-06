@@ -1,0 +1,16 @@
+.header {
+    background-color: #ff6969;
+    color: white;
+    text-align: center;
+    padding: 50px;
+  }
+  .title {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  .subtitle {
+    font-size: 1.5rem;
+    font-style: italic;
+    text-shadow: 2px 2px 2px gray;
+  }
+  

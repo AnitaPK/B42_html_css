@@ -1,0 +1,19 @@
+.achievements {
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .achievements h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .achievements ul {
+    list-style-type: none;
+    font-size: 1.2rem;
+  }
+  
+  .achievements li {
+    padding: 10px 0;
+  }
+  

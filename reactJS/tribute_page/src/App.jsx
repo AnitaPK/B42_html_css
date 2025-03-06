@@ -4,16 +4,25 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header'
 import HeaderImage from './components/HeaderImage'
-import Achivements from './components/Achivements'
+import About from './components/Aboutus';
+import Career from './components/Career';
+import Achievements from './components/Achivements';
+import Gallery from './components/Gallary';
+import Footer from './components/Footer';
+import './App.css';
 
 function App() {
 
   return (
-    <>
+    <div className='App'>
       <Header />
       <HeaderImage />
-      <Achivements />
-    </>
+      <About />
+      <Career />
+      <Achievements />
+      <Gallery />
+      <Footer />
+    </div>
   )
 }
 

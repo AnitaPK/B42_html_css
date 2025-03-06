@@ -1,0 +1,20 @@
+.career {
+    padding: 40px;
+    background-color: #f4f4f4;
+    text-align: center;
+  }
+  
+  .career h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .career ul {
+    list-style-type: none;
+    font-size: 1.2rem;
+  }
+  
+  .career li {
+    padding: 10px 0;
+  }
+  
