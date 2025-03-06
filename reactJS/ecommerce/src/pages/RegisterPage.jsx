@@ -24,7 +24,7 @@ console.log(email, password);
         </div>
         <div className="col">
           <form >
-            <legend>Register Form</legend>
+          <h3>Register here</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Name

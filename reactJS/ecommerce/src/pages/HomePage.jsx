@@ -1,9 +1,15 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
+import CardList from '../components/CardList'
+// import Footer from '../components/Footer'
 
-const HomePage = () => {
+const HomePage = ({data}) => {
   return (
     <div>
-      Home page
+        <Navbar />
+        <CardList data={data}/>
+        {/* <Footer /> */}
+  
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import formIamge from "../assets/formImage.jpg";
 import HomePage from "./HomePage";
+import './LoginPage.css'
+import { ToastContainer, toast } from 'react-toastify';
 
 const LoginPage = () => {
     const [email,setEmail] = useState()
@@ -21,10 +23,10 @@ console.log(loggedUser);
 function handleFormSubmit(event){
     event.preventDefault();
     if(email == loggedUser.email && password == loggedUser.password){
-      alert('Yov have logged in suceesfully')
+      toast.success('Yov have logged in suceesfully')
       setIsLoghgedIn(true);
     }else{
-      alert('credentials inValid')
+      toast.error('credentials inValid')
     }
 
 }
@@ -37,6 +39,7 @@ console.log(email, password);
         </div>
         <div className="col">
           <form onSubmit={handleFormSubmit}>
+            <h3>Login here</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Email address
@@ -74,7 +77,7 @@ console.log(email, password);
   <br></br>
 
   {isLoggedIn && <HomePage />}
-
+  <ToastContainer />
     </div>
   );
 };
