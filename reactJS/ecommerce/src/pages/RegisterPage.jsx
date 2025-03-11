@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import formIamge from "../assets/formImage.jpg";
+import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
     const [name, setName] =useState()
     const [email,setEmail] = useState()
     const [password, setPassword] = useState()
+    const navigate = useNavigate()
 
 
 function handleFormData(){
@@ -13,9 +15,11 @@ function handleFormData(){
     // setEmail('')
     // setPassword('')
     localStorage.setItem('user',JSON.stringify(payload))
+    navigate('/login')
 }
 
 console.log(email, password);
+
   return (
     <div className="container">
       <div className="row">
@@ -62,7 +66,7 @@ console.log(email, password);
                <button className="btn btn-primary" onClick={handleFormData}>
               Register
             </button>
-            <a href=''>If already Registered</a>
+            <Link to='/login'>If already Registered</Link>
           </form>
         </div>
       </div>

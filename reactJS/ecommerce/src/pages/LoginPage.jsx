@@ -3,13 +3,17 @@ import formIamge from "../assets/formImage.jpg";
 import HomePage from "./HomePage";
 import './LoginPage.css'
 import { ToastContainer, toast } from 'react-toastify';
+import { Link, useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
+const LoginPage = ({setIsLogin, 
+  // setLoggedUser
+}) => {
     const [email,setEmail] = useState()
     const [password, setPassword] = useState()
     const [loggedUser, setLoggedUser] = useState()
-    const [isLoggedIn,setIsLoghgedIn] = useState(false)
+    // const [isLoggedIn,setIsLoghgedIn] = useState(false)
 
+const navigate = useNavigate()
 
     useEffect(()=>{
       const loggedInUser = JSON.parse(localStorage.getItem('user'))
@@ -18,13 +22,13 @@ const LoginPage = () => {
 
 console.log(loggedUser);
 
-
-
 function handleFormSubmit(event){
     event.preventDefault();
     if(email == loggedUser.email && password == loggedUser.password){
       toast.success('Yov have logged in suceesfully')
-      setIsLoghgedIn(true);
+      // setIsLoghgedIn(true);
+      setIsLogin(true);
+      navigate('/home')
     }else{
       toast.error('credentials inValid')
     }
@@ -66,17 +70,17 @@ console.log(email, password);
             <button type="submit" className="btn btn-primary">
               Login
             </button>
-            <a href="">If Not Registered</a>
+            <Link to="/register">If Not Registered</Link>
 
           </form>
         </div>
       </div>
   
-  {isLoggedIn ? <p>logged In</p>    : <p>Please Log in</p>}
+  {/* {isLoggedIn ? <p>logged In</p>    : <p>Please Log in</p>} */}
 
   <br></br>
 
-  {isLoggedIn && <HomePage />}
+  {/* {isLoggedIn && <HomePage />} */}
   <ToastContainer />
     </div>
   );

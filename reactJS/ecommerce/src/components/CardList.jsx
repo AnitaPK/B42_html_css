@@ -11,20 +11,19 @@ const CardList = ({ data }) => {
   });
 
   return (
-    <div className="container bg-white">
-      <div className="row">
+    <div className="container bg-light py-4">
+      <h2 className="text-center mb-4" style={{ fontWeight: "bold" }}>
+        🍏 Fresh Fruits Collection 🍊
+      </h2>
+      <div className="row justify-content-center">
         {cards.length > 0 ? (
-          <>
-            {cards.map((elmt, index) => (
-              <>
-                <div key={index} className="col mb-3 hoverEffect">
-                  <Card fruit={elmt} />
-                </div>
-              </>
-            ))}
-          </>
+          cards.map((elmt, index) => (
+            <div key={index} className="col-md-4 col-sm-6 mb-4">
+              <Card fruit={elmt} />
+            </div>
+          ))
         ) : (
-          <>No data</>
+          <h4 className="text-center text-danger">No data available</h4>
         )}
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 const CardBootstrap = ({city}) => {
   return (
@@ -9,7 +10,7 @@ const CardBootstrap = ({city}) => {
       <p className="card-text">{city.info}</p>
       <p className="card-text text-primary">Price : {city.price}</p>
 
-      <a href="#" className="btn btn-primary">Go somewhere</a>
+      <Link to={`/city-details/${city.id}`} className="btn btn-primary">Go somewhere</Link>
     </div>
   </div>
   )

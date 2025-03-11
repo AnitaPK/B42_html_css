@@ -6,7 +6,7 @@ import CardList from '../components/CardList'
 const HomePage = ({data}) => {
   return (
     <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <CardList data={data}/>
         {/* <Footer /> */}
   
