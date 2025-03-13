@@ -7,6 +7,7 @@ import Card from './components/Card'
 
 import ChangeHeading from './components/ChangeHeading.jsx'
 import Calculator from './components/Calculator.jsx'
+import CountWithUseEffect from './components/CountWithUseEffect.jsx'
 
 
 const productBat = {pname:"Bat", image:"https://images-na.ssl-images-amazon.com/images/I/81lqk9RzPpL._AC_SL1500_.jpg", price:80000,inStock:true}
@@ -20,10 +21,11 @@ function App() {
 const [compName, setCompName] = useState('Wisdom Sprouts');
 const [sallary, setSallary] = useState(1000000)
 
-console.log(sallary)
+// console.log(sallary)
   return (
     <>
-    <Calculator />
+    <CountWithUseEffect />
+    {/* <Calculator />
     <ChangeHeading />
 
     <h3>{compName}</h3>
@@ -35,14 +37,14 @@ console.log(sallary)
       <h2>Learning React..   </h2>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, eos. Animi ipsum distinctio cum illum blanditiis aliquid perspiciatis itaque placeat?</p>
 
-      <img src={haederImage} alt="image not showing" className="imageclass" />
+      <img src={haederImage} alt="image not showing" className="imageclass" /> */}
 {/* classBased component, inlineCSS, diff functionBased & ClassBased */}
-
+{/* 
 <GreetingFunction data="Rohit Sharma" age={37} />
 <GreetingFunction data="Virat Kohli" age={36} />
 <GreetingFunction data="MS Dhoni" age={42} />
 <hr></hr>
-<GreetingClass data="Rohit Sharma Hitman" age={37} />
+<GreetingClass data="Rohit Sharma Hitman" age={37} /> */}
 
     </>
   )
