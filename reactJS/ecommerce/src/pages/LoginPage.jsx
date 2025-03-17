@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import formIamge from "../assets/formImage.jpg";
 import HomePage from "./HomePage";
 import './LoginPage.css'
 import { ToastContainer, toast } from 'react-toastify';
 import { Link, useNavigate } from "react-router-dom";
+
 
 const LoginPage = ({setIsLogin, 
   // setLoggedUser
@@ -34,6 +35,18 @@ function handleFormSubmit(event){
     }
 
 }
+
+const inputRef = useRef(null);
+// function goToInput(){
+
+// inputRef.current.focus();
+
+// }
+
+useEffect(()=>{
+inputRef.current.focus();
+},[])
+
 console.log(email, password);
   return (
     <div className="container">
@@ -53,8 +66,10 @@ console.log(email, password);
                 className="form-control"
                 id="exampleInputEmail1"
                 onChange={(e)=>setEmail(e.target.value)}
+                ref={inputRef}
               />
             </div>
+            {/* <button onClick={goToInput}> Go to Input</button> */}
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">
                 Password
