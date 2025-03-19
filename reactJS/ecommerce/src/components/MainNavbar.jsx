@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../assets/react.svg";
 import { Link } from "react-router-dom";
+import { BiToggleLeft, BiToggleRight } from "react-icons/bi";
+import { ThemeContext } from "../hooks/ThemeContext";
 
 const MainNavbar = () => {
+
+  const {theme, toggleTheme} = useContext(ThemeContext)
+
+
+// function handleClick(){
+// console.log(theme, "******theme value from context file**********")
+// toggleTheme();
+
+// }
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className={`navbar navbar-expand-lg ${theme == 'light' ? 'navbar-light bg-light' : 'navbar-dark bg-dark'}`}>
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           Navbar
@@ -32,9 +44,14 @@ const MainNavbar = () => {
             </li>
             <li className="nav-item">
               <Link to="/register" class="nav-link">
-                Rgister
+                Register
               </Link>
             </li>
+            <li className="nav-item" style={{fontSize:"30px"}}>
+              <button onClick={toggleTheme} className={`${theme == 'light' ? 'customToggleButtonLight' : 'customToggleButtonDark'}`}>
+                {theme == "light" ? <BiToggleLeft /> : <BiToggleRight />}
+              </button>
+              </li>
           </ul>
         </div>
       </div>

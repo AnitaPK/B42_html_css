@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import formIamge from "../assets/formImage.jpg";
 import { Link, useNavigate } from "react-router-dom";
+import ThemeContext from "../hooks/ThemeContext";
 
 const RegisterPage = () => {
+
+  const {theme} = useContext(ThemeContext);
+
     const [name, setName] =useState()
     const [email,setEmail] = useState()
     const [password, setPassword] = useState()
     const navigate = useNavigate()
 
-
 function handleFormData(){
+
     const payload = {name:name,email:email, password:password}
     console.log(payload);
     // setEmail('')
@@ -27,7 +31,7 @@ console.log(email, password);
           <img src={formIamge} alt="fruit image" className="img-fluid" />
         </div>
         <div className="col">
-          <form >
+          <form className={`${theme == 'light'? 'bg-light text-dark' : 'bg-dark text-light'}`}>
           <h3>Register here</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">

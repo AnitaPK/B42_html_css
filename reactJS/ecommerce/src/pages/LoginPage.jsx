@@ -1,14 +1,17 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import formIamge from "../assets/formImage.jpg";
 import HomePage from "./HomePage";
 import './LoginPage.css'
 import { ToastContainer, toast } from 'react-toastify';
 import { Link, useNavigate } from "react-router-dom";
+import { ThemeContext } from "../hooks/ThemeContext";
 
 
 const LoginPage = ({setIsLogin, 
   // setLoggedUser
 }) => {
+
+  const {theme} = useContext(ThemeContext);
     const [email,setEmail] = useState()
     const [password, setPassword] = useState()
     const [loggedUser, setLoggedUser] = useState()
@@ -55,7 +58,7 @@ console.log(email, password);
           <img src={formIamge} alt="fruit image" className="img-fluid" />
         </div>
         <div className="col">
-          <form onSubmit={handleFormSubmit}>
+          <form onSubmit={handleFormSubmit} className={`${theme == 'light'? 'bg-light text-dark' : 'bg-dark text-light'}`}>
             <h3>Login here</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
