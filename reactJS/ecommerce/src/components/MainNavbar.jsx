@@ -1,19 +1,32 @@
 import React, { useContext } from "react";
 import logo from "../assets/react.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiToggleLeft, BiToggleRight } from "react-icons/bi";
 import { ThemeContext } from "../hooks/ThemeContext";
+import { AuthContext } from "../hooks/AuthContext";
+
 
 const MainNavbar = () => {
 
   const {theme, toggleTheme} = useContext(ThemeContext)
+  const {loggedUser, logout,} = useContext(AuthContext)
+console.log(loggedUser,"In navbar")
 
+const navigate = useNavigate();
 
 // function handleClick(){
 // console.log(theme, "******theme value from context file**********")
 // toggleTheme();
 
 // }
+
+
+function handleLogout(){
+  logout();
+  navigate('/login')
+alert('Logout Success');
+
+}
 
   return (
     <nav className={`navbar navbar-expand-lg ${theme == 'light' ? 'navbar-light bg-light' : 'navbar-dark bg-dark'}`}>
@@ -37,7 +50,8 @@ const MainNavbar = () => {
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item">
+            { loggedUser == null ?
+              (<><li className="nav-item">
               <Link to="/login" class="nav-link">
                 Login
               </Link>
@@ -47,6 +61,16 @@ const MainNavbar = () => {
                 Register
               </Link>
             </li>
+            </>) : (<>
+              <span>{loggedUser.name}</span>
+              <li className="nav-item">
+                <button onClick={handleLogout}>Logout</button>
+              </li>
+            </>)
+
+            }
+
+
             <li className="nav-item" style={{fontSize:"30px"}}>
               <button onClick={toggleTheme} className={`${theme == 'light' ? 'customToggleButtonLight' : 'customToggleButtonDark'}`}>
                 {theme == "light" ? <BiToggleLeft /> : <BiToggleRight />}

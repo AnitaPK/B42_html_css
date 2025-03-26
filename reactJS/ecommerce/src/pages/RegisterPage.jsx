@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import formIamge from "../assets/formImage.jpg";
 import { Link, useNavigate } from "react-router-dom";
-import ThemeContext from "../hooks/ThemeContext";
+import {ThemeContext} from "../hooks/ThemeContext";
 
 const RegisterPage = () => {
 
@@ -31,7 +31,9 @@ console.log(email, password);
           <img src={formIamge} alt="fruit image" className="img-fluid" />
         </div>
         <div className="col">
-          <form className={`${theme == 'light'? 'bg-light text-dark' : 'bg-dark text-light'}`}>
+          <form className={`
+            ${theme == 'light'? 'bg-light text-dark' : 'bg-dark text-light'}
+            `}>
           <h3>Register here</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">

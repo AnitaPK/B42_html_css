@@ -5,39 +5,46 @@ import './LoginPage.css'
 import { ToastContainer, toast } from 'react-toastify';
 import { Link, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../hooks/ThemeContext";
+import { AuthContext } from "../hooks/AuthContext";
 
 
-const LoginPage = ({setIsLogin, 
+const LoginPage = ({
+  // setIsLogin, 
   // setLoggedUser
 }) => {
 
   const {theme} = useContext(ThemeContext);
+  const {login, loggedUser} = useContext(AuthContext);
     const [email,setEmail] = useState()
     const [password, setPassword] = useState()
-    const [loggedUser, setLoggedUser] = useState()
+    // const [loggedUser, setLoggedUser] = useState()
     // const [isLoggedIn,setIsLoghgedIn] = useState(false)
 
 const navigate = useNavigate()
 
-    useEffect(()=>{
-      const loggedInUser = JSON.parse(localStorage.getItem('user'))
-      setLoggedUser(loggedInUser);
-    },[])
+    // useEffect(()=>{
+    //   const loggedInUser = JSON.parse(localStorage.getItem('user'))
+    //   setLoggedUser(loggedInUser);
+    // },[])
 
-console.log(loggedUser);
+// console.log(loggedUser);
 
-function handleFormSubmit(event){
+async function handleFormSubmit(event){
     event.preventDefault();
-    if(email == loggedUser.email && password == loggedUser.password){
-      toast.success('Yov have logged in suceesfully')
+
+    await login(email,password);
+
+    // if(email == loggedUser.email && password == loggedUser.password){
+      alert("Logged in success")
       // setIsLoghgedIn(true);
-      setIsLogin(true);
+      // setIsLogin(true);
       navigate('/home')
-    }else{
-      toast.error('credentials inValid')
-    }
+    // }else{
+      // toast.error('credentials inValid')
+    // }
 
 }
+console.log(loggedUser)
 
 const inputRef = useRef(null);
 // function goToInput(){
@@ -50,7 +57,7 @@ useEffect(()=>{
 inputRef.current.focus();
 },[])
 
-console.log(email, password);
+// console.log(email, password);
   return (
     <div className="container">
       <div className="row">

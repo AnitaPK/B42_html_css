@@ -8,6 +8,7 @@ import Card from './components/Card'
 import ChangeHeading from './components/ChangeHeading.jsx'
 import Calculator from './components/Calculator.jsx'
 import CountWithUseEffect from './components/CountWithUseEffect.jsx'
+import CounterReducer from './components/CounterReducer.jsx'
 
 
 const productBat = {pname:"Bat", image:"https://images-na.ssl-images-amazon.com/images/I/81lqk9RzPpL._AC_SL1500_.jpg", price:80000,inStock:true}
@@ -24,7 +25,8 @@ const [sallary, setSallary] = useState(1000000)
 // console.log(sallary)
   return (
     <>
-    <CountWithUseEffect />
+    <CounterReducer />
+    {/* <CountWithUseEffect /> */}
     {/* <Calculator />
     <ChangeHeading />
 
