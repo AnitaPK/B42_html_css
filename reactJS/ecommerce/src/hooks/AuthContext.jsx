@@ -23,6 +23,7 @@ const login=(email,password)=>{
 }
 console.log(loggedUser,"******loggedUser in context**********")
 
+
 const logout=() =>{
     setLoggedUser(null);
 }
