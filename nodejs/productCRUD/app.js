@@ -3,6 +3,7 @@ const app = express()
 require('dotenv').config();
 
 const productRoute = require('./routes/productRoute')
+const categoryRoute = require('./routes/categoryRoute')
 
 
 const port = process.env.PORT
@@ -12,8 +13,8 @@ app.use(express.json());
 
 app.use('/api/product', productRoute);
 
+app.use('/api/category',categoryRoute);
 
-// add route for category
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 

@@ -1,19 +1,25 @@
+const products = require('../data/products')
+const categories = require('../data/categories')
 
-const products = [{id:1, name:"iPhone15", category:"Electronics",price:200000,inStock:true},
-    {id:2, name:"iPhone16 Pro", category:"",price:300200,inStock:true},
-]
 
-addProduct = (req,res)=>{
+const addProduct = (req,res)=>{
     console.log("*****", req.body,"********");
+const cat_ID = req.body.category_Id
+
+const cat_index = categories.findIndex(c => c.id == cat_ID)
+
+if(cat_index == -1){
+    res.status(400).send({message:"Category not found"})
+}else{
     const newProd = {id:Date.now(), 
         name:req.body.name, 
-        category:req.body.category,
+        category:req.body.category_Id,
         price:req.body.price,
         inStock:true
     }
     products.push(newProd);
     res.send({message:"Product added successfully",success:true})
-
+}
 }
 
 
@@ -56,10 +62,18 @@ function deleteProduct(req,res){
     res.status(200).send({message:"product deleted", success:true})
 }
 
+const getProductsByQuery = (req,res) =>{
+    console.log("$$$$$$$",req.query);
+    const prod_p = req.query.price 
+    fil_Prod = products.filter(p => p.price <= prod_p)
+    res.status(202).send({p:fil_Prod})
+}
+
 module.exports = {
     addProduct,
     getAllProducts, 
     getProductByID, 
     updateProduct, 
-    deleteProduct
+    deleteProduct,
+    getProductsByQuery
 }
