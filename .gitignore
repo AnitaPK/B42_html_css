@@ -1,1 +1,12 @@
 /cakeShop/assets
+
+
+node_modules
+package-lock.json
+
+*.jpg
+eslint.config.json
+
+react.svg
+vite.svg
+setting.json
