@@ -1,11 +1,11 @@
 const express = require('express')
 const cors = require('cors')
-// const path = require('path')
+const path = require('path')
 require('dotenv').config();
 require('./config/db')
 
 // const productRoute = require('./routes/productRoute')
-// const categoryRoute = require('./routes/categoryRoute')
+const categoryRoute = require('./routes/categoryRoute')
 const userRoute = require('./routes/userRoute')
 
 
@@ -19,10 +19,10 @@ const port = process.env.PORT || 8000
 
 app.get('/', (req, res) => res.send('Hello World!'))
 // app.use('/api/product', productRoute)
-// app.use('/api/category', categoryRoute)
+app.use('/api/category', categoryRoute)
 app.use('/api/user', userRoute)
 
-// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 

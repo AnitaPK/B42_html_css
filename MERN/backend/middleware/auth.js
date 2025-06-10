@@ -16,8 +16,21 @@ let decoded = jwt.verify(token,process.env.SECREATE_KEY)
 console.log(decoded)
 req.user = decoded   //{id:decoded.id,isADmin:decoded.isAdmin}
 
-next()
+next();
 }
 
 
-module.exports = {auth}
+const isAdmin = (req,res,next)=>{
+console.log(req.user)
+
+if(!req.user.isAdmin){
+    res.status(401).send({message:"Unauthorized user"})
+}
+
+
+next();
+
+}
+
+
+module.exports = {auth, isAdmin}
