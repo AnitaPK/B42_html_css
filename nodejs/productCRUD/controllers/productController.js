@@ -1,5 +1,6 @@
 const products = require('../data/products')
 const categories = require('../data/categories')
+const brands = require('../data/brands')
 
 
 const addProduct = (req,res)=>{
@@ -13,7 +14,8 @@ if(cat_index == -1){
 }else{
     const newProd = {id:Date.now(), 
         name:req.body.name, 
-        category:req.body.category_Id,
+        category_Id:req.body.category_Id,
+        brand_ID:req.body.brand_ID,
         price:req.body.price,
         inStock:true
     }
@@ -65,10 +67,18 @@ function deleteProduct(req,res){
 const getProductsByQuery = (req,res) =>{
     console.log("$$$$$$$",req.query);
     const prod_p = req.query.price 
-    fil_Prod = products.filter(p => p.price <= prod_p)
-    res.status(202).send({p:fil_Prod})
-}
+    const prod_b = req.query.brand_name
+    const BrandIndex = brands.findIndex(b=>b.brand_name == prod_b )
 
+    queryBrandID = brands[BrandIndex].brand_ID; 
+    fil_Prod = products.filter(p => p.price <= prod_p)
+    console.log(fil_Prod);
+
+    f_prod = fil_Prod.filter(p=> p.brand_ID == queryBrandID)
+    console.log(f_prod)
+    res.status(202).send({p:f_prod})
+}
+http://localhost:7000/api/product/getProductsByQuery?price=50000&brand_name=nike&inStock=true
 module.exports = {
     addProduct,
     getAllProducts, 

@@ -6,13 +6,13 @@ const multerMiddleware = require('../middleware/multer')
 const router = express.Router();
 
 
-router.post('/create',authMiddleware.auth,multerMiddleware.single('image'), productController.createProduct)
+router.post('/create',authMiddleware.auth,authMiddleware.isAdmin, multerMiddleware.single('image'), productController.createProduct)
 router.get('/gelAllProducts', productController.getAllProducts)
 router.get('/getProductByID/:id', productController.getProductByID)
 router.put('/updateProduct/:id',authMiddleware.auth, productController.updateProduct)
 router.delete('/deleteProduct/:id',authMiddleware.auth, productController.deleteProduct)
 router.get('/getProductsByCategory',productController.getProductsByCategory)
-router.get('/getProductsByQuery',productController.getProductsByQuery)
+// router.get('/getProductsByQuery',productController.getProductsByQuery)
 
 
 
